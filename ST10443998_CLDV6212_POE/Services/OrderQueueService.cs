@@ -29,8 +29,8 @@ namespace ST10443998_CLDV6212_POE.Services
             var peeked = await _queue.PeekMessagesAsync(count, ct);
             return peeked.Value.Select(m => new QueueMessageVm(
                 Id: m.MessageId,
-                Text: m.Body?.ToString(),    // or m.MessageText on older SDKs
-                InsertedOn: m.InsertedOn     // or m.InsertionTime on older SDKs
+                Text: m.Body?.ToString(), 
+                InsertedOn: m.InsertedOn     
             )).ToList();
         }
 

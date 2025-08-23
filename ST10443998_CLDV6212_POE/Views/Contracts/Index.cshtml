@@ -1,0 +1,27 @@
+﻿@model List<ST10443998_CLDV6212_POE.Models.FileItemVm>
+
+<h2>Contracts (Azure Files)</h2>
+<p class="text-success">@TempData["Ok"]</p>
+<p class="text-danger">@TempData["Err"]</p>
+
+<form asp-action="Upload" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <input type="file" name="file" />
+    <button class="btn btn-primary">Upload</button>
+</form>
+
+<table class="table mt-3">
+    <thead>
+        <tr><th>Name</th><th>Size</th><th>Last Modified</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model)
+        {
+            <tr>
+                <td>@f.Name</td>
+                <td>@(f.Size?.ToString("N0"))</td>
+                <td>@f.LastModified</td>
+            </tr>
+        }
+    </tbody>
+</table>

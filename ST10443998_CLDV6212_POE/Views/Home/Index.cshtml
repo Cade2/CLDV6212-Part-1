@@ -1,8 +1,25 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container text-center mt-5">
+    <h1 class="mb-4">Azure Storage Demo</h1>
+    <p class="lead">Choose a section to manage your data:</p>
+    <div class="row mt-4">
+        <div class="col-md-4 mb-3">
+            <a class="btn btn-primary btn-lg w-100" asp-controller="Storage" asp-action="Index">Dashboard</a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a class="btn btn-success btn-lg w-100" asp-controller="Customers" asp-action="Index">Customers</a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a class="btn btn-info btn-lg w-100" asp-controller="Media" asp-action="Index">Media</a>
+        </div>
+        <div class="col-md-6 mb-3">
+            <a class="btn btn-warning btn-lg w-100" asp-controller="Contracts" asp-action="Index">Contracts</a>
+        </div>
+        <div class="col-md-6 mb-3">
+            <a class="btn btn-danger btn-lg w-100" asp-controller="Queue" asp-action="Index">Queue</a>
+        </div>
+    </div>
 </div>

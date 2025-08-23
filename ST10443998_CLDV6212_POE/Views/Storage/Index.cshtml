@@ -1,5 +1,116 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ST10443998_CLDV6212_POE.Models.StorageDashboardVm
 @{
+    ViewData["Title"] = "Dashboard";
+}
+<h2>Azure Storage Dashboard</h2>
+<p class="text-success">@TempData["BlobMsg"] @TempData["FileMsg"] @TempData["QueueMsg"] @TempData["TableMsg"]</p>
+
+<hr />
+<h3>Customers (Azure Tables)</h3>
+<form asp-action="AddCustomer" method="post">
+    @Html.AntiForgeryToken()
+    <input name="firstName" placeholder="First name" class="form-control d-inline w-auto me-2" />
+    <input name="lastName" placeholder="Last name" class="form-control d-inline w-auto me-2" />
+    <input name="email" placeholder="Email" class="form-control d-inline w-auto me-2" />
+    <button class="btn btn-primary">Add</button>
+</form>
+@if (Model.Customers?.Any() == true)
+{
+    <table class="table mt-3">
+        <thead><tr><th>Name</th><th>Email</th><th>RowKey</th></tr></thead>
+        <tbody>
+            @foreach (var c in Model.Customers)
+            {
+                <tr><td>@c.FirstName @c.LastName</td><td>@c.Email</td><td>@c.RowKey</td></tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+
+    <div class="text-muted mt-2">No customers yet — add one above.</div>
+}
+
+<hr />
+<h3>Images (Azure Blobs)</h3>
+<form asp-action="UploadImage" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <input type="file" name="image" class="form-control d-inline w-auto me-2" />
+    <button class="btn btn-primary">Upload</button>
+</form>
+@if (Model.Blobs?.Any() == true)
+{
+    <table class="table mt-3">
+        <thead><tr><th>Name</th><th>Preview</th><th>Size</th><th>Last Modified</th></tr></thead>
+        <tbody>
+            @foreach (var b in Model.Blobs)
+            {
+                <tr>
+                    <td>@b.Name</td>
+                    <td>@if (!string.IsNullOrEmpty(b.Url)) {
+                    <img src="@b.Url" style="max-width:120px" />
+                }
+    </td>
+                <td>@(b.Size?.ToString("N0"))</td>
+                <td>@b.LastModified</td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
+else
+{
+
+    <div class="text-muted mt-2">No images yet — upload one above.</div>
+}
+
+<hr />
+<h3>Contracts (Azure Files)</h3>
+<form asp-action="UploadContract" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <input type="file" name="contract" class="form-control d-inline w-auto me-2" />
+    <button class="btn btn-primary">Upload</button>
+</form>
+@if (Model.Contracts?.Any() == true)
+{
+    <table class="table mt-3">
+        <thead><tr><th>Name</th><th>Size</th><th>Last Modified</th></tr></thead>
+        <tbody>
+            @foreach (var f in Model.Contracts)
+            {
+                <tr><td>@f.Name</td><td>@(f.Size?.ToString("N0"))</td><td>@f.LastModified</td></tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+
+    <div class="text-muted mt-2">No contracts yet — upload one above.</div>
+}
+
+<hr />
+<h3>Queue (Transactions / Inventory)</h3>
+<form asp-action="Enqueue" method="post">
+    @Html.AntiForgeryToken()
+    <input name="orderDescription" placeholder="e.g., Processing order #12345" class="form-control d-inline w-50 me-2" />
+    <button class="btn btn-primary">Enqueue</button>
+</form>
+@if (Model.QueueMessages?.Any() == true)
+{
+    <table class="table mt-3">
+        <thead><tr><th>Text</th><th>Inserted</th></tr></thead>
+        <tbody>
+            @foreach (var q in Model.QueueMessages)
+            {
+                <tr><td>@q.Text</td><td>@q.InsertedOn</td></tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+
+    <div class="text-muted mt-2">No queue messages yet — add one above.</div>
 }

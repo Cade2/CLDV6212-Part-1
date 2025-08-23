@@ -1,0 +1,20 @@
+﻿@model List<ST10443998_CLDV6212_POE.Models.CustomerEntity>
+<h2>Customers (Table Storage)</h2>
+<p class="text-success">@TempData["Ok"]</p><p class="text-danger">@TempData["Err"]</p>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+    <input name="firstName" placeholder="First name" />
+    <input name="lastName" placeholder="Last name" />
+    <input name="email" placeholder="Email" />
+    <button class="btn btn-primary">Add</button>
+</form>
+<table class="table mt-3">
+    <thead><tr><th>Name</th><th>Email</th><th>RowKey</th></tr></thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr><td>@c.FirstName @c.LastName</td><td>@c.Email</td><td>@c.RowKey</td></tr>
+        }
+    </tbody>
+</table>

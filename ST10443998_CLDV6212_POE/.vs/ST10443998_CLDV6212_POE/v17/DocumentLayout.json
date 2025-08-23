@@ -3,24 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\controllers\\storagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:controllers\\storagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\contracts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:views\\contracts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\controllers\\contractscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:controllers\\contractscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\storage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:views\\storage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\media\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:views\\media\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\queue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:views\\queue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\customers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:views\\customers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\controllers\\queuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:controllers\\queuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\controllers\\mediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:controllers\\mediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\controllers\\customerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:controllers\\customerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\controllers\\contractscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:controllers\\contractscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\controllers\\mediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:controllers\\mediacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\controllers\\storagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:controllers\\storagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\services\\orderqueueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:services\\orderqueueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\models\\storagedashboardvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,10 +75,6 @@
       "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:models\\blobitemvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\services\\orderqueueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:services\\orderqueueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\services\\customertableservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:services\\customertableservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -61,10 +89,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\models\\customerentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:models\\customerentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\storage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:views\\storage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -82,11 +106,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-23T19:53:32.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAwwBsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-23T19:52:55.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Queue\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Queue\\Index.cshtml",
+              "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Queue\\Index.cshtml",
+              "RelativeToolTip": "Views\\Queue\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-23T19:51:40.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Contracts\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Contracts\\Index.cshtml",
+              "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Contracts\\Index.cshtml",
+              "RelativeToolTip": "Views\\Contracts\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-23T19:51:20.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Media\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Media\\Index.cshtml",
+              "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Media\\Index.cshtml",
+              "RelativeToolTip": "Views\\Media\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-23T19:51:05.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Customers\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Customers\\Index.cshtml",
+              "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Customers\\Index.cshtml",
+              "RelativeToolTip": "Views\\Customers\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-23T19:50:43.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "StorageDashboardVm.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Models\\StorageDashboardVm.cs",
               "RelativeDocumentMoniker": "Models\\StorageDashboardVm.cs",
@@ -94,12 +196,11 @@
               "RelativeToolTip": "Models\\StorageDashboardVm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T19:09:55.812Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T19:09:55.812Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "QueueMessageVm.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Models\\QueueMessageVm.cs",
               "RelativeDocumentMoniker": "Models\\QueueMessageVm.cs",
@@ -107,12 +208,11 @@
               "RelativeToolTip": "Models\\QueueMessageVm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T19:09:22.103Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T19:09:22.103Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "FileItemVm.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Models\\FileItemVm.cs",
               "RelativeDocumentMoniker": "Models\\FileItemVm.cs",
@@ -120,12 +220,11 @@
               "RelativeToolTip": "Models\\FileItemVm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T19:08:50.481Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T19:08:50.481Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "BlobItemVm.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Models\\BlobItemVm.cs",
               "RelativeDocumentMoniker": "Models\\BlobItemVm.cs",
@@ -133,25 +232,24 @@
               "RelativeToolTip": "Models\\BlobItemVm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T19:08:18.744Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T19:08:18.744Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Storage\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Storage\\Index.cshtml",
               "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Storage\\Index.cshtml",
               "RelativeToolTip": "Views\\Storage\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-23T18:56:11.08Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 21,
               "Title": "CustomerEntity.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Models\\CustomerEntity.cs",
               "RelativeDocumentMoniker": "Models\\CustomerEntity.cs",
@@ -159,12 +257,11 @@
               "RelativeToolTip": "Models\\CustomerEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T18:51:59.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T18:51:59.302Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "ProductEntity.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Models\\ProductEntity.cs",
               "RelativeDocumentMoniker": "Models\\ProductEntity.cs",
@@ -172,90 +269,89 @@
               "RelativeToolTip": "Models\\ProductEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T18:51:18.282Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T18:51:18.282Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "QueueController.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Controllers\\QueueController.cs",
               "RelativeDocumentMoniker": "Controllers\\QueueController.cs",
               "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Controllers\\QueueController.cs",
               "RelativeToolTip": "Controllers\\QueueController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-23T18:38:30.23Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "ContractsController.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Controllers\\ContractsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ContractsController.cs",
               "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Controllers\\ContractsController.cs",
               "RelativeToolTip": "Controllers\\ContractsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-23T18:38:02.396Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "MediaController.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Controllers\\MediaController.cs",
               "RelativeDocumentMoniker": "Controllers\\MediaController.cs",
               "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Controllers\\MediaController.cs",
               "RelativeToolTip": "Controllers\\MediaController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-23T18:37:38.417Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "CustomersController.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Controllers\\CustomersController.cs",
               "RelativeDocumentMoniker": "Controllers\\CustomersController.cs",
               "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Controllers\\CustomersController.cs",
               "RelativeToolTip": "Controllers\\CustomersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-23T18:37:18.574Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "StorageController.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Controllers\\StorageController.cs",
               "RelativeDocumentMoniker": "Controllers\\StorageController.cs",
               "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Controllers\\StorageController.cs",
               "RelativeToolTip": "Controllers\\StorageController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwFYAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-23T17:53:50.981Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "OrderQueueService.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Services\\OrderQueueService.cs",
               "RelativeDocumentMoniker": "Services\\OrderQueueService.cs",
               "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Services\\OrderQueueService.cs",
               "RelativeToolTip": "Services\\OrderQueueService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwCMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwCAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-23T17:47:32.521Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 18,
               "Title": "CustomerTableService.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Services\\CustomerTableService.cs",
               "RelativeDocumentMoniker": "Services\\CustomerTableService.cs",
@@ -263,12 +359,11 @@
               "RelativeToolTip": "Services\\CustomerTableService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T17:47:07.741Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T17:47:07.741Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 19,
               "Title": "FileContractService.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Services\\FileContractService.cs",
               "RelativeDocumentMoniker": "Services\\FileContractService.cs",
@@ -276,12 +371,11 @@
               "RelativeToolTip": "Services\\FileContractService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T17:46:41.318Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T17:46:41.318Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 20,
               "Title": "BlobImageService.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Services\\BlobImageService.cs",
               "RelativeDocumentMoniker": "Services\\BlobImageService.cs",
@@ -289,12 +383,11 @@
               "RelativeToolTip": "Services\\BlobImageService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T17:45:55.532Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T17:45:55.532Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 22,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -302,12 +395,11 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAYwDYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T16:19:11.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T16:19:11.067Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 23,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -315,8 +407,7 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAADQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-23T16:19:09.943Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T16:19:09.943Z"
             }
           ]
         }
