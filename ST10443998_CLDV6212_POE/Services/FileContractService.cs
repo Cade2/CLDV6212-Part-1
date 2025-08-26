@@ -43,5 +43,11 @@ namespace ST10443998_CLDV6212_POE.Services
 
             return items;
         }
+
+        public Task DeleteAsync(string name, CancellationToken ct = default)
+        {
+            var root = _share.GetRootDirectoryClient();
+            return root.GetFileClient(name).DeleteIfExistsAsync(cancellationToken: ct);
+        }
     }
 }

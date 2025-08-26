@@ -10,7 +10,9 @@
 </form>
 
 <table class="table mt-3">
-    <thead><tr><th>Name</th><th>Preview</th><th>Size</th><th>Last Modified</th></tr></thead>
+    <thead>
+        <tr><th>Name</th><th>Preview</th><th>Size</th><th>Last Modified</th><th></th></tr>  <!-- added empty header for actions -->
+    </thead>
     <tbody>
         @foreach (var b in Model)
         {
@@ -22,6 +24,13 @@
 </td>
             <td>@(b.Size?.ToString("N0"))</td>
             <td>@b.LastModified</td>
+            <td class="text-end">
+                <form asp-action="Delete" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="name" value="@b.Name" />
+                    <button class="btn btn-sm btn-outline-danger">Delete</button>
+                </form>
+            </td>
         </tr>
                 }
     </tbody>

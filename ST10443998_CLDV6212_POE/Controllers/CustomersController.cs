@@ -25,6 +25,8 @@ namespace ST10443998_CLDV6212_POE.Controllers
 
             list = sort switch
             {
+                "lname_asc" => list.OrderBy(c => c.LastName).ThenBy(c => c.FirstName).ToList(),
+                "lname_desc" => list.OrderByDescending(c => c.LastName).ThenByDescending(c => c.FirstName).ToList(),
                 "name_desc" => list.OrderByDescending(c => c.FirstName).ThenByDescending(c => c.LastName).ToList(),
                 "email_asc" => list.OrderBy(c => c.Email).ToList(),
                 "email_desc" => list.OrderByDescending(c => c.Email).ToList(),

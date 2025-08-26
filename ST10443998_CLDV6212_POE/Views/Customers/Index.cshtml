@@ -10,11 +10,14 @@
     <div class="col-md-6"><input name="q" value="@q" class="form-control" placeholder="Search name or email..." /></div>
     <div class="col-md-3">
         <select name="sort" class="form-select">
-            <option value="name_asc" selected="@(sort == "name_asc")">Name ↑</option>
-            <option value="name_desc" selected="@(sort == "name_desc")">Name ↓</option>
+            <option value="name_asc" selected="@(sort == "name_asc")">First Name ↑</option>
+            <option value="name_desc" selected="@(sort == "name_desc")">First Name ↓</option>
+            <option value="lname_asc" selected="@(sort == "lname_asc")">Last Name ↑</option>
+            <option value="lname_desc" selected="@(sort == "lname_desc")">Last Name ↓</option>
             <option value="email_asc" selected="@(sort == "email_asc")">Email ↑</option>
             <option value="email_desc" selected="@(sort == "email_desc")">Email ↓</option>
         </select>
+
     </div>
     <div class="col-md-3"><button class="btn btn-outline-secondary w-100">Apply</button></div>
 </form>

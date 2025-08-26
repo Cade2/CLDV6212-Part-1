@@ -6,6 +6,7 @@ namespace ST10443998_CLDV6212_POE.Controllers
     public class ContractsController : Controller
     {
         private readonly FileContractService _files;
+        private readonly OrderQueueService _queue;
         public ContractsController(FileContractService files) => _files = files;
 
         public async Task<IActionResult> Index()
@@ -19,5 +20,16 @@ namespace ST10443998_CLDV6212_POE.Controllers
             TempData["Ok"] = "Contract uploaded.";
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name)) { TempData["Err"] = "Missing file name."; return RedirectToAction(nameof(Index)); }
+            await _files.DeleteAsync(name);
+            await _queue.EnqueueAsync($"Deleted contract \"{name}\"");
+            TempData["Ok"] = "Contract deleted.";
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

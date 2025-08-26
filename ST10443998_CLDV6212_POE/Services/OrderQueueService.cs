@@ -37,5 +37,23 @@ namespace ST10443998_CLDV6212_POE.Services
             )).ToList();
         }
 
+        public async Task<int> DequeueAndDeleteAsync(int count = 10, CancellationToken ct = default)
+        {
+            if (count < 1) count = 1;
+            if (count > 32) count = 32;
+
+            var received = await _queue.ReceiveMessagesAsync(count, cancellationToken: ct);
+            int deleted = 0;
+            foreach (var m in received.Value)
+            {
+                await _queue.DeleteMessageAsync(m.MessageId, m.PopReceipt, ct);
+                deleted++;
+            }
+            return deleted;
+        }
+
+        public Task ClearAsync(CancellationToken ct = default)
+            => _queue.ClearMessagesAsync(ct);
+
     }
 }

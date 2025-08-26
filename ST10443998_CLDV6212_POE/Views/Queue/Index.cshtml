@@ -8,6 +8,18 @@
     <div class="col-md-3"><button class="btn btn-primary w-100">Enqueue</button></div>
 </form>
 
+<form asp-action="Dequeue" method="post" class="d-inline">
+    @Html.AntiForgeryToken()
+    <input type="number" name="n" min="1" max="32" value="10" class="form-control d-inline w-auto me-2" />
+    <button class="btn btn-outline-primary">Dequeue N</button>
+</form>
+
+<form asp-action="Clear" method="post" class="d-inline ms-2"
+      onsubmit="return confirm('Clear ALL messages? This cannot be undone.');">
+    @Html.AntiForgeryToken()
+    <button class="btn btn-outline-danger">Clear All</button>
+</form>
+
 <table class="table mt-3">
     <thead><tr><th>Message</th><th>Inserted</th></tr></thead>
     <tbody>

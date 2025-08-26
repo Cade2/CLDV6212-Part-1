@@ -24,5 +24,22 @@ namespace ST10443998_CLDV6212_POE.Controllers
             TempData["Ok"] = "Message queued.";
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Dequeue(int n = 10)
+        {
+            var deleted = await _queue.DequeueAndDeleteAsync(n);
+            TempData["Ok"] = $"Dequeued & deleted {deleted} message(s).";
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Clear()
+        {
+            await _queue.ClearAsync();
+            TempData["Ok"] = "Queue cleared.";
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
