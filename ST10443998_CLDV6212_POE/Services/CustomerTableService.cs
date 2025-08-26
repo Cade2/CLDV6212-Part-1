@@ -4,18 +4,7 @@ using ST10443998_CLDV6212_POE.Models;
 
 namespace ST10443998_CLDV6212_POE.Services
 {
-
-    //public class CustomerEntity : ITableEntity
-    //{
-    //    public string PartitionKey { get; set; } = "Customer";
-    //    public string RowKey { get; set; } = Guid.NewGuid().ToString("N");
-    //    public string FirstName { get; set; } = string.Empty;
-    //    public string LastName { get; set; } = string.Empty;
-    //    public string Email { get; set; } = string.Empty;
-    //    public ETag ETag { get; set; }
-    //    public DateTimeOffset? Timestamp { get; set; }
-    //}
-
+    
     public class CustomerTableService
     {
         private readonly TableClient _table;
@@ -24,6 +13,7 @@ namespace ST10443998_CLDV6212_POE.Services
             _table = table;
             _table.CreateIfNotExists();
         }
+
         public Task AddCustomerAsync(CustomerEntity entity, CancellationToken ct = default)
         => _table.AddEntityAsync(entity, cancellationToken: ct);
 
@@ -37,5 +27,21 @@ namespace ST10443998_CLDV6212_POE.Services
             }
             return results;
         }
+
+        public async Task<CustomerEntity?> GetAsync(string rowKey, CancellationToken ct = default)
+        {
+            try
+            {
+                var resp = await _table.GetEntityAsync<CustomerEntity>("Customer", rowKey, cancellationToken: ct);
+                return resp.Value;
+            }
+            catch (RequestFailedException ex) when (ex.Status == 404) { return null; }
+        }
+
+        public Task UpdateAsync(CustomerEntity entity, CancellationToken ct = default)
+            => _table.UpdateEntityAsync(entity, entity.ETag, TableUpdateMode.Replace, ct);
+
+        public Task DeleteAsync(string rowKey, CancellationToken ct = default)
+            => _table.DeleteEntityAsync("Customer", rowKey, cancellationToken: ct);
     }
 }

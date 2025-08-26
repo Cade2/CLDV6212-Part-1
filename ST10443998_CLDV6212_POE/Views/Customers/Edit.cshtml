@@ -1,0 +1,24 @@
+﻿@model ST10443998_CLDV6212_POE.Models.CustomerEntity
+<h2>Edit Customer</h2>
+<form asp-action="Edit" method="post" class="row g-3">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="PartitionKey" />
+    <input type="hidden" asp-for="RowKey" />
+    <input type="hidden" asp-for="ETag" />
+    <div class="col-md-6">
+        <label class="form-label">First name</label>
+        <input class="form-control" asp-for="FirstName" />
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Last name</label>
+        <input class="form-control" asp-for="LastName" />
+    </div>
+    <div class="col-md-12">
+        <label class="form-label">Email</label>
+        <input class="form-control" asp-for="Email" />
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary">Save</button>
+        <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+    </div>
+</form>

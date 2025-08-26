@@ -1,6 +1,23 @@
 ﻿@model List<ST10443998_CLDV6212_POE.Models.ProductEntity>
+@{
+    var sort = (string?)ViewBag.Sort ?? "title_asc"; var q = (string?)ViewBag.Q;
+}
+
 <h2>Products (Table Storage)</h2>
 <p class="text-success">@TempData["Ok"]</p><p class="text-danger">@TempData["Err"]</p>
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-md-6"><input name="q" value="@q" class="form-control" placeholder="Search title..." /></div>
+    <div class="col-md-3">
+        <select name="sort" class="form-select">
+            <option value="title_asc" selected="@(sort == "title_asc")">Title ↑</option>
+            <option value="title_desc" selected="@(sort == "title_desc")">Title ↓</option>
+            <option value="price_asc" selected="@(sort == "price_asc")">Price ↑</option>
+            <option value="price_desc" selected="@(sort == "price_desc")">Price ↓</option>
+        </select>
+    </div>
+    <div class="col-md-3"><button class="btn btn-outline-secondary w-100">Apply</button></div>
+</form>
 
 <form asp-action="Create" method="post" class="row g-2">
     @Html.AntiForgeryToken()
@@ -10,11 +27,23 @@
 </form>
 
 <table class="table mt-3">
-    <thead><tr><th>Title</th><th>Price</th><th>ProductId</th></tr></thead>
+    <thead><tr><th>Title</th><th>Price</th><th>ProductId</th><th></th></tr></thead>
     <tbody>
         @foreach (var p in Model)
         {
-            <tr><td>@p.Title</td><td>@p.Price.ToString("C")</td><td>@p.RowKey</td></tr>
+            <tr>
+                <td>@p.Title</td>
+                <td>@p.Price.ToString("C")</td>
+                <td>@p.RowKey</td>
+                <td class="text-end">
+                    <a class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-route-id="@p.RowKey">Edit</a>
+                    <form asp-action="Delete" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@p.RowKey" />
+                        <button class="btn btn-sm btn-outline-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
