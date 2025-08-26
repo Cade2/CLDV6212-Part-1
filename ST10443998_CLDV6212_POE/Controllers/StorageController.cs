@@ -12,16 +12,20 @@ namespace ST10443998_CLDV6212_POE.Controllers
         private readonly FileContractService _fileSvc;
         private readonly OrderQueueService _queueSvc;
         private readonly CustomerTableService _tableSvc;
+        private readonly ProductTableService _productSvc;
+
         public StorageController(
-        BlobImageService blobSVC
-        , FileContractService fileSvc,
+        BlobImageService blobSVC,
+        FileContractService fileSvc,
         OrderQueueService queueSvc,
-        CustomerTableService tableSvc)
+        CustomerTableService tableSvc,
+        ProductTableService productSvc)
         {
             _blobSvc = blobSVC;
             _fileSvc = fileSvc;
             _queueSvc = queueSvc;
             _tableSvc = tableSvc;
+            _productSvc = productSvc;                   
         }
 
         [HttpGet]
@@ -30,34 +34,35 @@ namespace ST10443998_CLDV6212_POE.Controllers
             var vm = new StorageDashboardVm
             {
                 Customers = await _tableSvc.ListAsync(500),
+                Products = await _productSvc.ListAsync(500),
                 Blobs = await _blobSvc.ListAsync(),
                 Contracts = await _fileSvc.ListAsync(),
-                QueueMessages = await _queueSvc.PeekAsync(32)
+                QueueMessages = await _queueSvc.PeekAsync(32)  // <= 32
             };
             return View(vm);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> UploadImage(IFormFile image)
         {
             try
             {
                 var url = await _blobSvc.UploadImageAsync(image);
-                TempData["BlobMsg"] = $"Image Uploaded";
+                await _queueSvc.EnqueueAsync($"Uploaded image \"{image.FileName}\"");
+                TempData["BlobMsg"] = "Image uploaded.";
             }
             catch (Exception ex) { TempData["BlobMsg"] = $"Error: {ex.Message}"; }
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> UploadContract(IFormFile contract)
         {
             try
             {
                 await _fileSvc.UploadAsync(contract);
-                TempData["FileMsg"] = $"Contract Uploaded";
+                await _queueSvc.EnqueueAsync($"Stored contract \"{contract.FileName}\"");
+                TempData["FileMsg"] = "Contract uploaded.";
             }
             catch (Exception ex) { TempData["FileMsg"] = $"Error: {ex.Message}"; }
             return RedirectToAction(nameof(Index));
@@ -80,25 +85,22 @@ namespace ST10443998_CLDV6212_POE.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> AddCustomer(string firstName, string lastName, string email)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(email))
-                {
-                    TempData["TableMsg"] = "Email is required";
-                }
+                if (string.IsNullOrWhiteSpace(email)) { TempData["TableMsg"] = "Email is required."; }
                 else
                 {
                     await _tableSvc.AddCustomerAsync(new CustomerEntity
                     {
                         FirstName = firstName?.Trim() ?? "",
                         LastName = lastName?.Trim() ?? "",
-                        Email = email?.Trim() ?? ""
+                        Email = email.Trim()
                     });
-                    TempData["TableMsg"] = "Customer saved";
+                    await _queueSvc.EnqueueAsync($"Added customer \"{firstName} {lastName}\" <{email}>");
+                    TempData["TableMsg"] = "Customer saved.";
                 }
             }
             catch (Exception ex) { TempData["TableMsg"] = $"Error: {ex.Message}"; }

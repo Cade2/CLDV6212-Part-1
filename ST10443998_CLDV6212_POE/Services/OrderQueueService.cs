@@ -26,11 +26,14 @@ namespace ST10443998_CLDV6212_POE.Services
 
         public async Task<List<QueueMessageVm>> PeekAsync(int count = 16, CancellationToken ct = default)
         {
+            if (count < 1) count = 1;
+            if (count > 32) count = 32; // hard cap per Azure Queues API
+
             var peeked = await _queue.PeekMessagesAsync(count, ct);
             return peeked.Value.Select(m => new QueueMessageVm(
                 Id: m.MessageId,
-                Text: m.Body?.ToString(), 
-                InsertedOn: m.InsertedOn     
+                Text: m.Body?.ToString(),
+                InsertedOn: m.InsertedOn
             )).ToList();
         }
 

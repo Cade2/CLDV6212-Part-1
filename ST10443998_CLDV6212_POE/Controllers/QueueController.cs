@@ -9,7 +9,12 @@ namespace ST10443998_CLDV6212_POE.Controllers
         public QueueController(OrderQueueService queue) => _queue = queue;
 
         public async Task<IActionResult> Index()
-            => View(await _queue.PeekAsync(32));
+        {
+            var list = await _queue.PeekAsync(32);  // <= 32
+            list = list.OrderByDescending(m => m.InsertedOn ?? DateTimeOffset.MinValue).ToList();
+            return View(list);
+        }
+
 
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Enqueue(string text)

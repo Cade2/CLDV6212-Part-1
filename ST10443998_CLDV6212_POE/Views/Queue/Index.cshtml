@@ -1,15 +1,15 @@
 ﻿@model List<ST10443998_CLDV6212_POE.Models.QueueMessageVm>
-<h2>Queue (Transactions/Inventory)</h2>
+<h2>Queue (Transactions / Inventory)</h2>
 <p class="text-success">@TempData["Ok"]</p><p class="text-danger">@TempData["Err"]</p>
 
-<form asp-action="Enqueue" method="post">
+<form asp-action="Enqueue" method="post" class="row g-2">
     @Html.AntiForgeryToken()
-    <input name="text" placeholder="e.g., Processing order #12345" />
-    <button class="btn btn-primary">Enqueue</button>
+    <div class="col-md-9"><input name="text" class="form-control" placeholder="e.g., Processing order #12345" /></div>
+    <div class="col-md-3"><button class="btn btn-primary w-100">Enqueue</button></div>
 </form>
 
 <table class="table mt-3">
-    <thead><tr><th>Text</th><th>Inserted</th></tr></thead>
+    <thead><tr><th>Message</th><th>Inserted</th></tr></thead>
     <tbody>
         @foreach (var q in Model)
         {

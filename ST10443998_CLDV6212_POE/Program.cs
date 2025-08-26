@@ -16,21 +16,27 @@ namespace ST10443998_CLDV6212_POE
             builder.Services.AddControllersWithViews();
             var conn = builder.Configuration.GetConnectionString("AzureStorage")!;
             var container = builder.Configuration["AzureStorage:BlobContainer"]!;
-            var share = builder.Configuration["AzureStorage:FileShare"];
-            var queue = builder.Configuration["AzureStorage:QueueName"];
-            var table = builder.Configuration["AzureStorage:TableName"];
+            var share = builder.Configuration["AzureStorage:FileShare"]!;
+            var queue = builder.Configuration["AzureStorage:QueueName"]!;
+            var custTable = builder.Configuration["AzureStorage:CustomersTable"] ?? "Customers";
+            var prodTable = builder.Configuration["AzureStorage:ProductsTable"] ?? "Products";
 
             // Azure clients (singletons)
             builder.Services.AddSingleton(new BlobContainerClient(conn, container));
             builder.Services.AddSingleton(new ShareClient(conn, share));
             builder.Services.AddSingleton(new QueueClient(conn, queue));
-            builder.Services.AddSingleton(new TableClient(conn, table));
+
+            // Table-backed app services (each with its own TableClient)
+            builder.Services.AddSingleton<CustomerTableService>(_ =>
+                new CustomerTableService(new TableClient(conn, custTable)));
+            builder.Services.AddSingleton<ProductTableService>(_ =>
+                new ProductTableService(new TableClient(conn, prodTable)));
 
             // App Services
             builder.Services.AddSingleton<BlobImageService>();
             builder.Services.AddSingleton<FileContractService>();
             builder.Services.AddSingleton<OrderQueueService>();
-            builder.Services.AddSingleton<CustomerTableService>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
