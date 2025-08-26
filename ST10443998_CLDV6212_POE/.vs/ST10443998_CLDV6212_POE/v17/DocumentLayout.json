@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\media\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:views\\media\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D1192AE-2070-454A-856F-98830789638F}|ST10443998_CLDV6212_POE.csproj|c:\\users\\cadeb\\source\\repos\\st10443998_cldv6212_poe\\views\\queue\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -106,30 +106,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABAAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-23T19:53:32.856Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAwwBsAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAAoAAABvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-08-23T19:52:55.359Z",
               "EditorCaption": ""
@@ -144,12 +144,11 @@
               "RelativeToolTip": "Views\\Queue\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T19:51:40.309Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T19:51:40.309Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Contracts\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Contracts\\Index.cshtml",
@@ -157,12 +156,11 @@
               "RelativeToolTip": "Views\\Contracts\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T19:51:20.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T19:51:20.449Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Media\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Media\\Index.cshtml",
@@ -170,8 +168,7 @@
               "RelativeToolTip": "Views\\Media\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T19:51:05.127Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T19:51:05.127Z"
             },
             {
               "$type": "Document",
@@ -183,8 +180,7 @@
               "RelativeToolTip": "Views\\Customers\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T19:50:43.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T19:50:43.604Z"
             },
             {
               "$type": "Document",
@@ -236,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Views\\Storage\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Storage\\Index.cshtml",
@@ -244,8 +240,7 @@
               "RelativeToolTip": "Views\\Storage\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-23T18:56:11.08Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T18:56:11.08Z"
             },
             {
               "$type": "Document",
@@ -281,12 +276,11 @@
               "RelativeToolTip": "Controllers\\QueueController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T18:38:30.23Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T18:38:30.23Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ContractsController.cs",
               "DocumentMoniker": "C:\\Users\\cadeb\\source\\repos\\ST10443998_CLDV6212_POE\\Controllers\\ContractsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ContractsController.cs",
@@ -294,8 +288,7 @@
               "RelativeToolTip": "Controllers\\ContractsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T18:38:02.396Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T18:38:02.396Z"
             },
             {
               "$type": "Document",
@@ -307,8 +300,7 @@
               "RelativeToolTip": "Controllers\\MediaController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T18:37:38.417Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T18:37:38.417Z"
             },
             {
               "$type": "Document",
@@ -320,8 +312,7 @@
               "RelativeToolTip": "Controllers\\CustomersController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T18:37:18.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T18:37:18.574Z"
             },
             {
               "$type": "Document",
@@ -333,8 +324,7 @@
               "RelativeToolTip": "Controllers\\StorageController.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAgwFYAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T17:53:50.981Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T17:53:50.981Z"
             },
             {
               "$type": "Document",
@@ -346,8 +336,7 @@
               "RelativeToolTip": "Services\\OrderQueueService.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwCAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T17:47:32.521Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T17:47:32.521Z"
             },
             {
               "$type": "Document",
