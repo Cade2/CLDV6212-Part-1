@@ -1,33 +1,113 @@
 ﻿@model List<ST10443998_CLDV6212_POE.Models.FileItemVm>
+@using Microsoft.AspNetCore.Antiforgery
+@inject IAntiforgery Antiforgery
+@{
+    var q = (string?)ViewBag.Q;
+    var sort = (string?)ViewBag.Sort ?? "name_asc";
+    var afToken = Antiforgery.GetAndStoreTokens(Context).RequestToken; // for fetch
+}
 
 <h2>Contracts (Azure Files)</h2>
 <p class="text-success">@TempData["Ok"]</p><p class="text-danger">@TempData["Err"]</p>
 
-<form asp-action="Upload" method="post" enctype="multipart/form-data">
-    @Html.AntiForgeryToken()
-    <input type="file" name="file" />
-    <button class="btn btn-primary">Upload</button>
+<!-- filter + sort -->
+<form method="get" class="row g-2 mb-3">
+    <div class="col-md-8">
+        <input name="q" value="@q" class="form-control" placeholder="Search filename..." />
+    </div>
+    <div class="col-md-3">
+        <select name="sort" class="form-select">
+            <option value="name_asc" selected="@(sort == "name_asc")">Name ↑</option>
+            <option value="name_desc" selected="@(sort == "name_desc")">Name ↓</option>
+            <option value="date_asc" selected="@(sort == "date_asc")">Date ↑</option>
+            <option value="date_desc" selected="@(sort == "date_desc")">Date ↓</option>
+            <option value="size_asc" selected="@(sort == "size_asc")">Size ↑</option>
+            <option value="size_desc" selected="@(sort == "size_desc")">Size ↓</option>
+        </select>
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-outline-secondary w-100">Go</button>
+    </div>
 </form>
 
-<table class="table mt-3">
-    <thead>
-        <tr><th>Name</th><th>Size</th><th>Last Modified</th><th></th></tr>  <!-- actions header -->
-    </thead>
+<!-- existing form upload (kept) -->
+<form asp-action="Upload" method="post" enctype="multipart/form-data" class="row g-2 mb-3">
+    @Html.AntiForgeryToken()
+    <div class="col-md-9"><input type="file" name="file" class="form-control" /></div>
+    <div class="col-md-3"><button class="btn btn-primary w-100">Upload</button></div>
+</form>
+
+<!-- NEW: drag & drop zone + progress -->
+<div id="dropFiles" class="border rounded p-4 text-center mb-2">
+    Drag & drop files here to upload
+</div>
+<div class="progress mb-3" style="height:6px; display:none" id="fileProgWrap">
+    <div class="progress-bar" role="progressbar" id="fileProg" style="width: 0%"></div>
+</div>
+
+<table class="table">
+    <thead><tr><th>Name</th><th>Size</th><th>Last Modified</th><th></th></tr></thead>
     <tbody>
         @foreach (var f in Model)
         {
             <tr>
                 <td>@f.Name</td>
-                <td>@(f.Size?.ToString("N0"))</td>
-                <td>@f.LastModified</td>
+                <td>@(f.Size.HasValue ? $"{f.Size:N0} bytes" : "—")</td>
+                <td>@(f.LastModified.HasValue? f.LastModified.Value.ToLocalTime().ToString("yyyy/MM/dd HH:mm:ss") : "—")</td>
                 <td class="text-end">
+                    <a class="btn btn-sm btn-outline-primary" asp-action="Download" asp-route-name="@f.Name">Download</a>
                     <form asp-action="Delete" method="post" class="d-inline">
                         @Html.AntiForgeryToken()
                         <input type="hidden" name="name" value="@f.Name" />
                         <button class="btn btn-sm btn-outline-danger">Delete</button>
                     </form>
                 </td>
+
             </tr>
         }
     </tbody>
 </table>
+
+<script>
+    (function(){
+      const drop = document.getElementById('dropFiles');
+      const progWrap = document.getElementById('fileProgWrap');
+      const prog = document.getElementById('fileProg');
+      const uploadUrl = '@Url.Action("Upload", "Contracts")';
+      const af = '@afToken'; // anti-forgery token
+
+      function prevent(e){ e.preventDefault(); e.stopPropagation(); }
+
+      ['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => {
+        prevent(e); drop.classList.add('bg-light');
+      }));
+      ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => {
+        prevent(e); drop.classList.remove('bg-light');
+      }));
+
+      drop.addEventListener('drop', async e => {
+        const files = Array.from(e.dataTransfer.files || []);
+        if (!files.length) return;
+
+        progWrap.style.display = 'block';
+
+        for (let i = 0; i < files.length; i++) {
+          const form = new FormData();
+          form.append('file', files[i]);
+
+          prog.style.width = '10%';
+          try {
+            await fetch(uploadUrl, {
+              method: 'POST',
+              headers: { 'RequestVerificationToken': af },
+              body: form
+            });
+            prog.style.width = '100%';
+          } catch (err) {
+            console.error(err);
+          }
+        }
+        location.reload();
+      });
+    })();
+</script>

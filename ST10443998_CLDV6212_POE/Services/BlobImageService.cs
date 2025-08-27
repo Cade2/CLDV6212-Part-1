@@ -42,7 +42,20 @@ namespace ST10443998_CLDV6212_POE.Services
         }
 
         public Task DeleteAsync(string name, CancellationToken ct = default)
-    => _container.DeleteBlobIfExistsAsync(name, cancellationToken: ct);
+        => _container.DeleteBlobIfExistsAsync(name, cancellationToken: ct);
 
+
+        public async Task<(Stream Stream, string ContentType, string DownloadName)?> DownloadAsync(string name, CancellationToken ct = default)
+        {
+            if (string.IsNullOrWhiteSpace(name)) return null;
+            await _container.CreateIfNotExistsAsync(PublicAccessType.BlobContainer, cancellationToken: ct);
+
+            var blob = _container.GetBlobClient(name);
+            if (!await blob.ExistsAsync(ct)) return null;
+
+            var dl = await blob.DownloadAsync(ct);
+            var contentType = dl.Value.Details.ContentType ?? "application/octet-stream";
+            return (dl.Value.Content, contentType, name);
+        }
     }
 }

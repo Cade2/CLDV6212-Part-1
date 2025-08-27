@@ -1,74 +1,99 @@
 ﻿@model ST10443998_CLDV6212_POE.Models.StorageDashboardVm
+@using System.Text.Json
 @{
     ViewData["Title"] = "Dashboard";
+
+    // tiny helper to pretty-parse queue JSON payloads (safe fallbacks)
+    string SafeStr(JsonElement e) => e.ValueKind == JsonValueKind.String ? e.GetString() ?? "" : e.ToString();
+    (string? orderId, string? desc, DateTimeOffset? createdUtc) ParseQueue(string? raw)
+    {
+        if (string.IsNullOrWhiteSpace(raw)) return (null, null, null);
+        try
+        {
+            using var doc = JsonDocument.Parse(raw);
+            var root = doc.RootElement;
+            string? id = root.TryGetProperty("OrderId", out var v1) ? SafeStr(v1) : null;
+            string? desc = root.TryGetProperty("Description", out var v2) ? SafeStr(v2) : null;
+
+            DateTimeOffset? created = null;
+            if (root.TryGetProperty("CreatedUtc", out var v3))
+            {
+                if (v3.ValueKind == JsonValueKind.String && DateTimeOffset.TryParse(v3.GetString(), out var dt))
+                    created = dt;
+                else if (v3.ValueKind == JsonValueKind.Number && v3.TryGetInt64(out var epoch))
+                    created = DateTimeOffset.FromUnixTimeSeconds(epoch);
+            }
+            return (id, desc, created);
+        }
+        catch { return (null, null, null); }
+    }
 }
 <h2>Azure Storage Dashboard</h2>
-<p class="text-success">@TempData["BlobMsg"] @TempData["FileMsg"] @TempData["QueueMsg"] @TempData["TableMsg"]</p>
+<p class="text-success">
+    @TempData["BlobMsg"] @TempData["FileMsg"] @TempData["QueueMsg"] @TempData["TableMsg"]
+</p>
 
 <hr />
 <h3>Customers (Azure Tables)</h3>
-<form asp-action="AddCustomer" method="post">
+<form asp-action="AddCustomer" method="post" class="row g-2 mb-2">
     @Html.AntiForgeryToken()
-    <input name="firstName" placeholder="First name" class="form-control d-inline w-auto me-2" />
-    <input name="lastName" placeholder="Last name" class="form-control d-inline w-auto me-2" />
-    <input name="email" placeholder="Email" class="form-control d-inline w-auto me-2" />
-    <button class="btn btn-primary">Add</button>
+    <div class="col-md-3"><input name="firstName" placeholder="First name" class="form-control" /></div>
+    <div class="col-md-3"><input name="lastName" placeholder="Last name" class="form-control" /></div>
+    <div class="col-md-4"><input name="email" placeholder="Email" class="form-control" /></div>
+    <div class="col-md-2"><button class="btn btn-primary w-100">Add</button></div>
 </form>
 @if (Model.Customers?.Any() == true)
 {
-    <table class="table mt-3">
-        <thead><tr><th>Name</th><th>Email</th><th>RowKey</th></tr></thead>
+    <table class="table">
+        <thead><tr><th>First</th><th>Last</th><th>Email</th></tr></thead>
         <tbody>
             @foreach (var c in Model.Customers)
             {
-                <tr><td>@c.FirstName @c.LastName</td><td>@c.Email</td><td>@c.RowKey</td></tr>
+                <tr><td>@c.FirstName</td><td>@c.LastName</td><td>@c.Email</td></tr>
             }
         </tbody>
     </table>
 }
 else
 {
-
-    <div class="text-muted mt-2">No customers yet — add one above.</div>
+    <div class="text-muted">No customers yet — add one above.</div>
 }
 
 <hr />
 <h3>Products (Azure Tables)</h3>
-<form asp-controller="Products" asp-action="Create" method="post" class="row g-2">
+<form asp-controller="Products" asp-action="Create" method="post" class="row g-2 mb-2">
     @Html.AntiForgeryToken()
-    <div class="col-md-6"><input name="title" class="form-control" placeholder="Title" /></div>
+    <div class="col-md-7"><input name="title" class="form-control" placeholder="Title" /></div>
     <div class="col-md-3"><input name="price" class="form-control" type="number" step="0.01" placeholder="Price" /></div>
-    <div class="col-md-3"><button class="btn btn-primary w-100">Add Product</button></div>
+    <div class="col-md-2"><button class="btn btn-primary w-100">Add Product</button></div>
 </form>
 @if (Model.Products?.Any() == true)
 {
-    <table class="table mt-3">
-        <thead><tr><th>Title</th><th>Price</th><th>ProductId</th></tr></thead>
+    <table class="table">
+        <thead><tr><th>Title</th><th>Price</th></tr></thead>
         <tbody>
             @foreach (var p in Model.Products)
             {
-                <tr><td>@p.Title</td><td>@p.Price.ToString("C")</td><td>@p.RowKey</td></tr>
+                <tr><td>@p.Title</td><td>@p.Price.ToString("C")</td></tr>
             }
         </tbody>
     </table>
 }
 else
 {
-
-    <div class="text-muted mt-2">No products yet — add one above.</div>
+    <div class="text-muted">No products yet — add one above.</div>
 }
-
 
 <hr />
 <h3>Images (Azure Blobs)</h3>
-<form asp-action="UploadImage" method="post" enctype="multipart/form-data">
+<form asp-action="UploadImage" method="post" enctype="multipart/form-data" class="row g-2 mb-2">
     @Html.AntiForgeryToken()
-    <input type="file" name="image" class="form-control d-inline w-auto me-2" />
-    <button class="btn btn-primary">Upload</button>
+    <div class="col-md-9"><input type="file" name="image" class="form-control" /></div>
+    <div class="col-md-3"><button class="btn btn-primary w-100">Upload</button></div>
 </form>
 @if (Model.Blobs?.Any() == true)
 {
-    <table class="table mt-3">
+    <table class="table">
         <thead><tr><th>Name</th><th>Preview</th><th>Size</th><th>Last Modified</th></tr></thead>
         <tbody>
             @foreach (var b in Model.Blobs)
@@ -79,8 +104,8 @@ else
                     <img src="@b.Url" style="max-width:120px" />
                 }
     </td>
-                <td>@(b.Size?.ToString("N0"))</td>
-                <td>@b.LastModified</td>
+                <td>@(b.Size.HasValue ? $"{b.Size:N0} bytes" : "—")</td>
+                <td>@(b.LastModified.HasValue? b.LastModified.Value.ToLocalTime().ToString("yyyy/MM/dd HH:mm:ss") : "—")</td>
             </tr>
         }
     </tbody>
@@ -88,56 +113,72 @@ else
 }
 else
 {
-
-    <div class="text-muted mt-2">No images yet — upload one above.</div>
+    <div class="text-muted">No images yet — upload one above.</div>
 }
 
 <hr />
 <h3>Contracts (Azure Files)</h3>
-<form asp-action="UploadContract" method="post" enctype="multipart/form-data">
+<form asp-action="UploadContract" method="post" enctype="multipart/form-data" class="row g-2 mb-2">
     @Html.AntiForgeryToken()
-    <input type="file" name="contract" class="form-control d-inline w-auto me-2" />
-    <button class="btn btn-primary">Upload</button>
+    <div class="col-md-9"><input type="file" name="contract" class="form-control" /></div>
+    <div class="col-md-3"><button class="btn btn-primary w-100">Upload</button></div>
 </form>
 @if (Model.Contracts?.Any() == true)
 {
-    <table class="table mt-3">
+    <table class="table">
         <thead><tr><th>Name</th><th>Size</th><th>Last Modified</th></tr></thead>
         <tbody>
             @foreach (var f in Model.Contracts)
             {
-                <tr><td>@f.Name</td><td>@(f.Size?.ToString("N0"))</td><td>@f.LastModified</td></tr>
+                <tr>
+                    <td>@f.Name</td>
+                    <td>@(f.Size.HasValue ? $"{f.Size:N0} bytes" : "—")</td>
+                    <td>@(f.LastModified.HasValue? f.LastModified.Value.ToLocalTime().ToString("yyyy/MM/dd HH:mm:ss") : "—")</td>
+                </tr>
             }
         </tbody>
     </table>
 }
 else
 {
-
-    <div class="text-muted mt-2">No contracts yet — upload one above.</div>
+    <div class="text-muted">No contracts yet — upload one above.</div>
 }
 
 <hr />
 <h3>Queue (Transactions / Inventory)</h3>
-<form asp-action="Enqueue" method="post">
+<form asp-action="Enqueue" method="post" class="row g-2 mb-2">
     @Html.AntiForgeryToken()
-    <input name="orderDescription" placeholder="e.g., Processing order #12345" class="form-control d-inline w-50 me-2" />
-    <button class="btn btn-primary">Enqueue</button>
+    <div class="col-md-9"><input name="orderDescription" placeholder="e.g., Processing order #12345" class="form-control" /></div>
+    <div class="col-md-3"><button class="btn btn-primary w-100">Enqueue</button></div>
 </form>
 @if (Model.QueueMessages?.Any() == true)
 {
-    <table class="table mt-3">
-        <thead><tr><th>Text</th><th>Inserted</th></tr></thead>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>OrderId</th>
+                <th>Description</th>
+                <th>Created (payload)</th>
+                <th>Inserted (queue)</th>
+            </tr>
+        </thead>
         <tbody>
             @foreach (var q in Model.QueueMessages)
             {
-                <tr><td>@q.Text</td><td>@q.InsertedOn</td></tr>
+                var parsed = ParseQueue(q.Text);
+                var created = parsed.createdUtc?.ToLocalTime().ToString("yyyy/MM/dd HH:mm:ss");
+                var inserted = q.InsertedOn?.ToLocalTime().ToString("yyyy/MM/dd HH:mm:ss");
+                <tr>
+                    <td>@(parsed.orderId ?? "—")</td>
+                    <td>@(parsed.desc ?? "—")</td>
+                    <td>@(string.IsNullOrEmpty(created) ? "—" : created)</td>
+                    <td>@(string.IsNullOrEmpty(inserted) ? "—" : inserted)</td>
+                </tr>
             }
         </tbody>
     </table>
 }
 else
 {
-
-    <div class="text-muted mt-2">No queue messages yet — add one above.</div>
+    <div class="text-muted">No queue messages yet — add one above.</div>
 }

@@ -1,10 +1,24 @@
-﻿@model List<ST10443998_CLDV6212_POE.Models.QueueMessageVm>
+﻿@model List<ST10443998_CLDV6212_POE.Models.QueuePrettyVm>
+@{
+    ViewData["Title"] = "Queue";
+    string? q = ViewBag.Q as string;
+}
+
 <h2>Queue (Transactions / Inventory)</h2>
 <p class="text-success">@TempData["Ok"]</p><p class="text-danger">@TempData["Err"]</p>
 
-<form asp-action="Enqueue" method="post" class="row g-2">
+<form method="get" class="row g-2 mb-3">
+    <div class="col-md-9">
+        <input name="q" value="@q" class="form-control" placeholder="Filter messages (OrderId, Description)..." />
+    </div>
+    <div class="col-md-3">
+        <button class="btn btn-outline-secondary w-100">Filter</button>
+    </div>
+</form>
+
+<form asp-action="Enqueue" method="post" class="row g-2 mb-3">
     @Html.AntiForgeryToken()
-    <div class="col-md-9"><input name="text" class="form-control" placeholder="e.g., Processing order #12345" /></div>
+    <div class="col-md-9"><input name="text" class="form-control" placeholder='e.g., Processing order #12345' /></div>
     <div class="col-md-3"><button class="btn btn-primary w-100">Enqueue</button></div>
 </form>
 
@@ -21,11 +35,27 @@
 </form>
 
 <table class="table mt-3">
-    <thead><tr><th>Message</th><th>Inserted</th></tr></thead>
+    <thead>
+        <tr>
+            <th>OrderId</th>
+            <th>Description</th>
+            <th>Created (payload)</th>
+            <th>Inserted (queue)</th>
+            <th>Raw</th>
+        </tr>
+    </thead>
     <tbody>
-        @foreach (var q in Model)
+        @foreach (var m in Model)
         {
-            <tr><td>@q.Text</td><td>@q.InsertedOn</td></tr>
+            var created = m.Event?.CreatedUtc?.ToLocalTime().ToString("yyyy/MM/dd HH:mm:ss");
+            var inserted = m.InsertedOn?.ToLocalTime().ToString("yyyy/MM/dd HH:mm:ss");
+            <tr>
+                <td>@(m.Event?.OrderId ?? "—")</td>
+                <td>@(m.Event?.Description ?? "—")</td>
+                <td>@(string.IsNullOrEmpty(created) ? "—" : created)</td>
+                <td>@(string.IsNullOrEmpty(inserted) ? "—" : inserted)</td>
+                <td class="text-muted small">@((m.Event is null) ? m.RawText : null)</td>
+            </tr>
         }
     </tbody>
 </table>

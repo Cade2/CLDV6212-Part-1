@@ -10,17 +10,22 @@ namespace ST10443998_CLDV6212_POE.Controllers
         private readonly OrderQueueService _queue;
         public ProductsController(ProductTableService products, OrderQueueService queue) { _products = products; _queue = queue; }
 
-        public async Task<IActionResult> Index(string? sort, string? q)
+        public async Task<IActionResult> Index(string? sort, string? q, decimal? min, decimal? max)
         {
             var list = await _products.ListAsync(1000);
 
+            // Search by title
             if (!string.IsNullOrWhiteSpace(q))
             {
                 var s = q.Trim();
-                list = list.Where(p =>
-                    p.Title.Contains(s, StringComparison.OrdinalIgnoreCase)).ToList();
+                list = list.Where(p => p.Title.Contains(s, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
+            // Price range filters (inclusive)
+            if (min.HasValue) list = list.Where(p => p.Price >= min.Value).ToList();
+            if (max.HasValue) list = list.Where(p => p.Price <= max.Value).ToList();
+
+            // Sorting
             list = sort switch
             {
                 "title_desc" => list.OrderByDescending(p => p.Title).ToList(),
@@ -29,9 +34,14 @@ namespace ST10443998_CLDV6212_POE.Controllers
                 _ => list.OrderBy(p => p.Title).ToList(), // title_asc default
             };
 
-            ViewBag.Sort = sort; ViewBag.Q = q;
+            ViewBag.Sort = sort;
+            ViewBag.Q = q;
+            ViewBag.Min = min;
+            ViewBag.Max = max;
+
             return View(list);
         }
+
 
         //[HttpPost, ValidateAntiForgeryToken]
         //public async Task<IActionResult> Create(string title, decimal price)

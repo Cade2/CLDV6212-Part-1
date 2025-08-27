@@ -1,53 +1,69 @@
 ﻿@model List<ST10443998_CLDV6212_POE.Models.CustomerEntity>
 @{
-    var sort = (string?)ViewBag.Sort ?? "name_asc"; var q = (string?)ViewBag.Q;
+    var q = (string?)ViewBag.Q;
+    var sort = (string?)ViewBag.Sort ?? "name_asc";
 }
 
-<h2>Customers (Table Storage)</h2>
-<p class="text-success">@TempData["Ok"]</p><p class="text-danger">@TempData["Err"]</p>
+<h2>Customers (Azure Tables)</h2>
+<p class="text-success">@TempData["Ok"]</p>
+<p class="text-danger">@TempData["Err"]</p>
 
+<!-- Filter & sort -->
 <form method="get" class="row g-2 mb-3">
-    <div class="col-md-6"><input name="q" value="@q" class="form-control" placeholder="Search name or email..." /></div>
-    <div class="col-md-3">
+    <div class="col-md-7">
+        <input name="q" value="@q" class="form-control" placeholder="Search name or email..." />
+    </div>
+    <div class="col-md-4">
         <select name="sort" class="form-select">
-            <option value="name_asc" selected="@(sort == "name_asc")">First Name ↑</option>
-            <option value="name_desc" selected="@(sort == "name_desc")">First Name ↓</option>
-            <option value="lname_asc" selected="@(sort == "lname_asc")">Last Name ↑</option>
-            <option value="lname_desc" selected="@(sort == "lname_desc")">Last Name ↓</option>
+            <option value="name_asc" selected="@(sort == "name_asc")">First name ↑</option>
+            <option value="name_desc" selected="@(sort == "name_desc")">First name ↓</option>
+            <option value="lname_asc" selected="@(sort == "lname_asc")">Last name ↑</option>
+            <option value="lname_desc" selected="@(sort == "lname_desc")">Last name ↓</option>
             <option value="email_asc" selected="@(sort == "email_asc")">Email ↑</option>
             <option value="email_desc" selected="@(sort == "email_desc")">Email ↓</option>
         </select>
-
     </div>
-    <div class="col-md-3"><button class="btn btn-outline-secondary w-100">Apply</button></div>
+    <div class="col-md-1">
+        <button class="btn btn-outline-secondary w-100">Go</button>
+    </div>
 </form>
 
-<form asp-action="Create" method="post" class="row g-2">
+<!-- Create -->
+<form asp-action="Create" method="post" class="row g-2 mb-3">
     @Html.AntiForgeryToken()
-    <div class="col-md-4"><input name="firstName" class="form-control" placeholder="First name" /></div>
-    <div class="col-md-4"><input name="lastName" class="form-control" placeholder="Last name" /></div>
+    <div class="col-md-3"><input name="firstName" class="form-control" placeholder="First name" /></div>
+    <div class="col-md-3"><input name="lastName" class="form-control" placeholder="Last name" /></div>
     <div class="col-md-4"><input name="email" class="form-control" placeholder="Email" /></div>
-    <div class="col-12"><button class="btn btn-primary mt-2">Add Customer</button></div>
+    <div class="col-md-2"><button class="btn btn-primary w-100">Add</button></div>
 </form>
 
-<table class="table mt-3">
-    <thead><tr><th>Name</th><th>Email</th><th>RowKey</th><th></th></tr></thead>
-    <tbody>
-        @foreach (var c in Model)
-        {
-            <tr>
-                <td>@c.FirstName @c.LastName</td>
-                <td>@c.Email</td>
-                <td>@c.RowKey</td>
-                <td class="text-end">
-                    <a class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-route-id="@c.RowKey">Edit</a>
-                    <form asp-action="Delete" method="post" class="d-inline">
-                        @Html.AntiForgeryToken()
-                        <input type="hidden" name="id" value="@c.RowKey" />
-                        <button class="btn btn-sm btn-outline-danger">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@if (Model?.Any() == true)
+{
+    <table class="table">
+        <thead>
+            <tr><th>First</th><th>Last</th><th>Email</th><th></th></tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.FirstName</td>
+                    <td>@c.LastName</td>
+                    <td>@c.Email</td>
+                    <td class="text-end">
+                        <a class="btn btn-sm btn-outline-secondary" asp-action="Edit" asp-route-id="@c.RowKey">Edit</a>
+                        <form asp-action="Delete" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@c.RowKey" />
+                            <button class="btn btn-sm btn-outline-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="text-muted">No customers yet — add one above.</div>
+}
