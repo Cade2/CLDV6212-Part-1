@@ -8,14 +8,12 @@ namespace ST10443998_CLDV6212_POE.Controllers
         private readonly FileContractService _files;
         private readonly OrderQueueService _queue;
 
-        // FIX: inject OrderQueueService since we use _queue in Delete()
         public ContractsController(FileContractService files, OrderQueueService queue)
         {
             _files = files;
             _queue = queue;
         }
 
-        // NEW: q (search by name) + sort (name/date/size)
         public async Task<IActionResult> Index(string? q, string? sort)
         {
             var list = await _files.ListAsync();
@@ -33,7 +31,7 @@ namespace ST10443998_CLDV6212_POE.Controllers
                 "date_desc" => list.OrderByDescending(f => f.LastModified ?? DateTimeOffset.MinValue).ToList(),
                 "size_asc" => list.OrderBy(f => f.Size ?? long.MaxValue).ToList(),
                 "size_desc" => list.OrderByDescending(f => f.Size ?? long.MinValue).ToList(),
-                _ => list.OrderBy(f => f.Name).ToList(), // name_asc default
+                _ => list.OrderBy(f => f.Name).ToList(), 
             };
 
             ViewBag.Q = q;

@@ -14,11 +14,9 @@ namespace ST10443998_CLDV6212_POE.Controllers
         {
             var list = await _queue.PeekAsync(32);
 
-            // optional filtering first
             if (!string.IsNullOrWhiteSpace(q))
                 list = list.Where(m => (m.Text ?? "").Contains(q, StringComparison.OrdinalIgnoreCase)).ToList();
 
-            // parse JSON -> QueuePrettyVm
             var pretty = new List<QueuePrettyVm>();
             foreach (var m in list)
             {
@@ -36,7 +34,6 @@ namespace ST10443998_CLDV6212_POE.Controllers
                         DateTimeOffset? createdUtc = null;
                         if (root.TryGetProperty("CreatedUtc", out var v3))
                         {
-                            // handle ISO string or DateTime value
                             if (v3.ValueKind == JsonValueKind.String && DateTimeOffset.TryParse(v3.GetString(), out var p))
                                 createdUtc = p;
                             else if (v3.ValueKind == JsonValueKind.Number && v3.TryGetInt64(out var epoch))
@@ -47,7 +44,7 @@ namespace ST10443998_CLDV6212_POE.Controllers
                             evt = new OrderEventVm(orderId, description, createdUtc);
                     }
                 }
-                catch { /* leave evt = null; fall back to raw */ }
+                catch { }
 
                 pretty.Add(new QueuePrettyVm
                 {
@@ -58,7 +55,6 @@ namespace ST10443998_CLDV6212_POE.Controllers
                 });
             }
 
-            // newest first
             pretty = pretty.OrderByDescending(x => x.InsertedOn ?? DateTimeOffset.MinValue).ToList();
 
             ViewBag.Q = q;

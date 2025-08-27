@@ -30,7 +30,7 @@ namespace ST10443998_CLDV6212_POE.Controllers
                 "name_desc" => list.OrderByDescending(c => c.FirstName).ThenByDescending(c => c.LastName).ToList(),
                 "email_asc" => list.OrderBy(c => c.Email).ToList(),
                 "email_desc" => list.OrderByDescending(c => c.Email).ToList(),
-                _ => list.OrderBy(c => c.FirstName).ThenBy(c => c.LastName).ToList(), // name_asc default
+                _ => list.OrderBy(c => c.FirstName).ThenBy(c => c.LastName).ToList(),
             };
 
             ViewBag.Sort = sort;
@@ -38,23 +38,6 @@ namespace ST10443998_CLDV6212_POE.Controllers
             return View(list);
         }
 
-        //[HttpPost, ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create(string firstName, string lastName, string email)
-        //{
-        //    if (string.IsNullOrWhiteSpace(email))
-        //    {
-        //        TempData["Err"] = "Email is required.";
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    await _tables.AddCustomerAsync(new CustomerEntity
-        //    {
-        //        FirstName = firstName?.Trim() ?? "",
-        //        LastName = lastName?.Trim() ?? "",
-        //        Email = email.Trim()
-        //    });
-        //    TempData["Ok"] = "Customer saved.";
-        //    return RedirectToAction(nameof(Index));
-        //}
 
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string firstName, string lastName, string email)
@@ -67,7 +50,6 @@ namespace ST10443998_CLDV6212_POE.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // EDIT
         [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
@@ -85,7 +67,6 @@ namespace ST10443998_CLDV6212_POE.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // DELETE
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(string id)
         {

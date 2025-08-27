@@ -8,7 +8,6 @@
 <p class="text-success">@TempData["Ok"]</p>
 <p class="text-danger">@TempData["Err"]</p>
 
-<!-- Filter & sort -->
 <form method="get" class="row g-2 mb-3">
     <div class="col-md-7">
         <input name="q" value="@q" class="form-control" placeholder="Search name or email..." />
@@ -28,7 +27,6 @@
     </div>
 </form>
 
-<!-- Create -->
 <form asp-action="Create" method="post" class="row g-2 mb-3">
     @Html.AntiForgeryToken()
     <div class="col-md-3"><input name="firstName" class="form-control" placeholder="First name" /></div>

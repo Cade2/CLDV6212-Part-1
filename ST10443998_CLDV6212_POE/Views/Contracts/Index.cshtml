@@ -4,13 +4,12 @@
 @{
     var q = (string?)ViewBag.Q;
     var sort = (string?)ViewBag.Sort ?? "name_asc";
-    var afToken = Antiforgery.GetAndStoreTokens(Context).RequestToken; // for fetch
+    var afToken = Antiforgery.GetAndStoreTokens(Context).RequestToken; 
 }
 
 <h2>Contracts (Azure Files)</h2>
 <p class="text-success">@TempData["Ok"]</p><p class="text-danger">@TempData["Err"]</p>
 
-<!-- filter + sort -->
 <form method="get" class="row g-2 mb-3">
     <div class="col-md-8">
         <input name="q" value="@q" class="form-control" placeholder="Search filename..." />
@@ -30,14 +29,12 @@
     </div>
 </form>
 
-<!-- existing form upload (kept) -->
 <form asp-action="Upload" method="post" enctype="multipart/form-data" class="row g-2 mb-3">
     @Html.AntiForgeryToken()
     <div class="col-md-9"><input type="file" name="file" class="form-control" /></div>
     <div class="col-md-3"><button class="btn btn-primary w-100">Upload</button></div>
 </form>
 
-<!-- NEW: drag & drop zone + progress -->
 <div id="dropFiles" class="border rounded p-4 text-center mb-2">
     Drag & drop files here to upload
 </div>
@@ -74,7 +71,7 @@
       const progWrap = document.getElementById('fileProgWrap');
       const prog = document.getElementById('fileProg');
       const uploadUrl = '@Url.Action("Upload", "Contracts")';
-      const af = '@afToken'; // anti-forgery token
+      const af = '@afToken'; 
 
       function prevent(e){ e.preventDefault(); e.stopPropagation(); }
 

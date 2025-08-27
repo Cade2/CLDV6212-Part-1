@@ -12,7 +12,6 @@ namespace ST10443998_CLDV6212_POE
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
             var conn = builder.Configuration.GetConnectionString("AzureStorage")!;
             var container = builder.Configuration["AzureStorage:BlobContainer"]!;
@@ -21,18 +20,15 @@ namespace ST10443998_CLDV6212_POE
             var custTable = builder.Configuration["AzureStorage:CustomersTable"] ?? "Customers";
             var prodTable = builder.Configuration["AzureStorage:ProductsTable"] ?? "Products";
 
-            // Azure clients (singletons)
             builder.Services.AddSingleton(new BlobContainerClient(conn, container));
             builder.Services.AddSingleton(new ShareClient(conn, share));
             builder.Services.AddSingleton(new QueueClient(conn, queue));
 
-            // Table-backed app services (each with its own TableClient)
             builder.Services.AddSingleton<CustomerTableService>(_ =>
                 new CustomerTableService(new TableClient(conn, custTable)));
             builder.Services.AddSingleton<ProductTableService>(_ =>
                 new ProductTableService(new TableClient(conn, prodTable)));
 
-            // App Services
             builder.Services.AddSingleton<BlobImageService>();
             builder.Services.AddSingleton<FileContractService>();
             builder.Services.AddSingleton<OrderQueueService>();

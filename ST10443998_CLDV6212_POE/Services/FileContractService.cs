@@ -60,11 +60,9 @@ namespace ST10443998_CLDV6212_POE.Services
 
             if (!await file.ExistsAsync(ct)) return null;
 
-            // Get properties to read ContentType
             var props = await file.GetPropertiesAsync(cancellationToken: ct);
             var contentType = props.Value.ContentType ?? "application/octet-stream";
 
-            // Download file content
             var dl = await file.DownloadAsync(cancellationToken: ct);
 
             return (dl.Value.Content, contentType);

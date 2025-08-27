@@ -7,7 +7,7 @@ namespace ST10443998_CLDV6212_POE.Services
     public class ProductTableService
     {
         private readonly TableClient _table;
-        public ProductTableService(TableClient table)   // register this client to your "Products" table in Program.cs
+        public ProductTableService(TableClient table)   
         {
             _table = table;
             _table.CreateIfNotExists();

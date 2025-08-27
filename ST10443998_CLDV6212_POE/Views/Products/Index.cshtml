@@ -1,9 +1,12 @@
 ﻿@model List<ST10443998_CLDV6212_POE.Models.ProductEntity>
+@using System.Globalization
 @{
     var sort = (string?)ViewBag.Sort ?? "title_asc";
     var q = (string?)ViewBag.Q;
-    decimal? min = (decimal?)ViewBag.Min;
-    decimal? max = (decimal?)ViewBag.Max;
+    double? min = (double?)ViewBag.Min;
+    double? max = (double?)ViewBag.Max;
+
+    string Num(double? v) => v.HasValue ? v.Value.ToString(CultureInfo.InvariantCulture) : "";
 }
 
 <h2>Products (Table Storage)</h2>
@@ -14,10 +17,10 @@
         <input name="q" value="@q" class="form-control" placeholder="Search title..." />
     </div>
     <div class="col-md-2">
-        <input name="min" value="@(min?.ToString())" class="form-control" type="number" step="0.01" placeholder="Min price" />
+        <input name="min" value="@Num(min)" class="form-control" type="number" step="0.01" placeholder="Min price" />
     </div>
     <div class="col-md-2">
-        <input name="max" value="@(max?.ToString())" class="form-control" type="number" step="0.01" placeholder="Max price" />
+        <input name="max" value="@Num(max)" class="form-control" type="number" step="0.01" placeholder="Max price" />
     </div>
     <div class="col-md-3">
         <select name="sort" class="form-select">
@@ -34,13 +37,25 @@
 
 <form asp-action="Create" method="post" class="row g-2 mb-3">
     @Html.AntiForgeryToken()
-    <div class="col-md-7"><input name="title" class="form-control" placeholder="Title" /></div>
-    <div class="col-md-3"><input name="price" class="form-control" type="number" step="0.01" placeholder="Price" /></div>
-    <div class="col-md-2"><button class="btn btn-primary w-100">Add Product</button></div>
+    <div class="col-md-7">
+        <input name="title" class="form-control" placeholder="Title" />
+    </div>
+    <div class="col-md-3">
+        <input name="price" class="form-control" type="text" placeholder="Price" />
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary w-100">Add Product</button>
+    </div>
 </form>
 
 <table class="table">
-    <thead><tr><th>Title</th><th>Price</th><th></th></tr></thead>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
     <tbody>
         @foreach (var p in Model)
         {

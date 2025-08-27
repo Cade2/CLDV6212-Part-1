@@ -8,14 +8,13 @@ namespace ST10443998_CLDV6212_POE.Controllers
         private readonly BlobImageService _blobs;
         private readonly OrderQueueService _queue;
 
-        // FIX: inject OrderQueueService since we use _queue in Delete()
         public MediaController(BlobImageService blobs, OrderQueueService queue)
         {
             _blobs = blobs;
             _queue = queue;
         }
 
-        // NEW: q (search by name) + sort (name/date/size)
+
         public async Task<IActionResult> Index(string? q, string? sort)
         {
             var list = await _blobs.ListAsync();
@@ -33,7 +32,7 @@ namespace ST10443998_CLDV6212_POE.Controllers
                 "date_desc" => list.OrderByDescending(b => b.LastModified ?? DateTimeOffset.MinValue).ToList(),
                 "size_asc" => list.OrderBy(b => b.Size ?? long.MaxValue).ToList(),
                 "size_desc" => list.OrderByDescending(b => b.Size ?? long.MinValue).ToList(),
-                _ => list.OrderBy(b => b.Name).ToList(), // name_asc default
+                _ => list.OrderBy(b => b.Name).ToList(), 
             };
 
             ViewBag.Q = q;

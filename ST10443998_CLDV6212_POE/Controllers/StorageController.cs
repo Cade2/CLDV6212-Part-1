@@ -37,7 +37,7 @@ namespace ST10443998_CLDV6212_POE.Controllers
                 Products = await _productSvc.ListAsync(500),
                 Blobs = await _blobSvc.ListAsync(),
                 Contracts = await _fileSvc.ListAsync(),
-                QueueMessages = await _queueSvc.PeekAsync(32)  // <= 32
+                QueueMessages = await _queueSvc.PeekAsync(32)  
             };
             return View(vm);
         }

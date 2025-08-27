@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Dashboard";
 
-    // tiny helper to pretty-parse queue JSON payloads (safe fallbacks)
     string SafeStr(JsonElement e) => e.ValueKind == JsonValueKind.String ? e.GetString() ?? "" : e.ToString();
     (string? orderId, string? desc, DateTimeOffset? createdUtc) ParseQueue(string? raw)
     {
